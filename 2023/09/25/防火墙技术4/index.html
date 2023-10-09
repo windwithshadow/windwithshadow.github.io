@@ -1,0 +1,353 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>防火墙技术4 | 风随逐影的博客</title><meta name="author" content="风随逐影"><meta name="copyright" content="风随逐影"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="防火墙技术4">
+<meta property="og:url" content="http://windwithshadow.github.io/2023/09/25/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF4/index.html">
+<meta property="og:site_name" content="风随逐影的博客">
+<meta property="og:description" content="笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://windwithshadow.github.io/image/start.png">
+<meta property="article:published_time" content="2023-09-25T02:50:29.000Z">
+<meta property="article:modified_time" content="2023-09-25T04:26:38.174Z">
+<meta property="article:author" content="风随逐影">
+<meta property="article:tag" content="防火墙技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://windwithshadow.github.io/image/start.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://windwithshadow.github.io/2023/09/25/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '防火墙技术4',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-25 12:26:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/start.png')"><nav id="nav"><span id="blog-info"><a href="/" title="风随逐影的博客"><img class="site-icon" src="/image/%E5%A4%B4%E5%83%8F.png"/><span class="site-name">风随逐影的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">防火墙技术4</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-25T02:50:29.000Z" title="发表于 2023-09-25 10:50:29">2023-09-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-25T04:26:38.174Z" title="更新于 2023-09-25 12:26:38">2023-09-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="防火墙技术4"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="防火墙技术4"><a href="#防火墙技术4" class="headerlink" title="防火墙技术4"></a>防火墙技术4</h1><h2 id="一种网络攻击——Smurf攻击"><a href="#一种网络攻击——Smurf攻击" class="headerlink" title="一种网络攻击——Smurf攻击"></a>一种网络攻击——Smurf攻击</h2><ul>
+<li><p>原理：广播包通过广播地址发送数据到整个网络中的所有设备。当某台设备使用广播地址发送一个ICMP请求包时，收到请求的设备会回应一个ICMP响应包，也就是说，发送一个包会收到许多的响应包。</p>
+</li>
+<li><p>Smurf攻击就是使用这个原理来进行的。它通过假冒的源地址来进行攻击。在网络中发送源地址为被攻击主机的地址，目的地址为广播地址的包，会使许多的系统响应发送大量的信息给被攻击主机。</p>
+</li>
+</ul>
+<p>如何防御？</p>
+<ol>
+<li>过滤广播地址：在网络的出口路由器上配置过滤规则，禁止广播地址的流量通过，阻止攻击者的Echo Request报文进入目标网络。</li>
+<li>启用反向路径过滤（Reverse Path Filtering）：通过验证数据包的源IP地址是否为网络出口合法的路径返回地址，来过滤掉源IP地址伪造的报文。</li>
+<li>使用流量限制措施：通过使用防火墙和入侵检测系统（IDS）等技术，对网络流量进行监控和管理，及时发现并限制异常流量。</li>
+<li>升级网络设备：确保网络设备的固件和软件及时更新至最新版本，以修复已知漏洞，提升网络安全性。</li>
+</ol>
+<h2 id="防火墙的发展历程"><a href="#防火墙的发展历程" class="headerlink" title="防火墙的发展历程"></a>防火墙的发展历程</h2><h3 id="第一代：路由器防火墙"><a href="#第一代：路由器防火墙" class="headerlink" title="第一代：路由器防火墙"></a>第一代：路由器防火墙</h3><ul>
+<li><p>路由器具有数据过滤功能，可通过路由控制实现网络访问控制，从而使具有数据过滤功能的路由器成为第一代防火墙。</p>
+</li>
+<li><p>一个网络设备具备路由器、防火墙两种功能。</p>
+</li>
+</ul>
+<p><strong>特点：</strong></p>
+<ul>
+<li><p>利用路由器对数据包的解析，以访问控制规则控制数据包的通过；</p>
+</li>
+<li><p>过滤判决的依据可以是：IP地址、端口号、以及其它网络特征；</p>
+</li>
+<li><p>功能简单，配置简单。</p>
+</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li><p>本身不是安全产品，有很多安全漏洞；</p>
+</li>
+<li><p>过滤规则的设置存在安全隐患；</p>
+</li>
+<li><p>攻击者可以“假冒”地址进行攻击；</p>
+</li>
+<li><p>会降低路由器的性能。</p>
+</li>
+</ul>
+<p><strong>代表产品：</strong></p>
+<p>Cisco路由器</p>
+<h3 id="第二代：软件防火墙"><a href="#第二代：软件防火墙" class="headerlink" title="第二代：软件防火墙"></a>第二代：软件防火墙</h3><ul>
+<li><p>成为独立安全工具，将数据包控制功能从路由器中独立出来，并加上审计和告警等其它功能。</p>
+</li>
+<li><p>提供模块化的软件包，是纯软件产品。</p>
+</li>
+</ul>
+<p><strong>特点：</strong></p>
+<ul>
+<li><p>将网络控制功能从路由器中独立出来，并加上审计和告警功能；</p>
+</li>
+<li><p>提供模块化的软件包；</p>
+</li>
+<li><p>用户可以自己动手构造防火墙（iptable）；</p>
+</li>
+<li><p>与第一代防火墙相比，安全性提高了，价格降低了。</p>
+</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li><p>对用户的技术要求高</p>
+</li>
+<li><p>全软件实现，安全性和性能均受限制</p>
+</li>
+</ul>
+<p><strong>代表产品：</strong></p>
+<p> iptable、TIS FWTK、AXNET Raptor、SecureZone</p>
+<h3 id="第三代：硬件防火墙"><a href="#第三代：硬件防火墙" class="headerlink" title="第三代：硬件防火墙"></a>第三代：硬件防火墙</h3><p><strong>特点：</strong></p>
+<ul>
+<li><p>建立在通用操作系统上的防火墙，被广泛使用；</p>
+</li>
+<li><p>可批量生产的专用防火墙；</p>
+</li>
+<li><p>具备数据包过滤控制功能；</p>
+</li>
+<li><p>具备专用的硬件；</p>
+</li>
+<li><p>安全性和速度大大提高。</p>
+</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li><p>由于大多数防火墙厂商并非通用操作系统的厂商，通用操作系统厂商不会对操作系统的安全性负责；</p>
+</li>
+<li><p>该类防火墙既要防止外部网络的攻击，还要防止来自针对操作系统的攻击；</p>
+</li>
+<li><p>用户必须依赖防火墙厂商和操作系统厂商两方面的安全支持。</p>
+</li>
+</ul>
+<p><strong>代表产品：</strong></p>
+<p>Check Point fireWall、CA Etrust FireWall、天融信网络卫士、联想网御</p>
+<h3 id="第四代：安全操作系统防火墙"><a href="#第四代：安全操作系统防火墙" class="headerlink" title="第四代：安全操作系统防火墙"></a>第四代：安全操作系统防火墙</h3><ul>
+<li><p>采用专用安全操作系统</p>
+</li>
+<li><p>在安全性上得到提高</p>
+</li>
+<li><p>硬件防火墙</p>
+</li>
+</ul>
+<p><strong>代表产品：</strong></p>
+<ul>
+<li><p>Cisco PIX</p>
+</li>
+<li><p>NetScreen</p>
+</li>
+</ul>
+<p><strong>特点：</strong></p>
+<ul>
+<li><p>防火墙厂商具有操作系统的源代码，可实现安全内核；</p>
+</li>
+<li><p>对安全内核实现加固处理，去掉不必要的系统特性，强化安全保护；</p>
+</li>
+<li><p>在功能上包括了数据包过滤、应用网关、电路级网关，具有加密与鉴别功能；</p>
+</li>
+<li><p>透明性好，易于使用；</p>
+</li>
+<li><p>取消危险的系统调用，限制命令的执行权限；</p>
+</li>
+<li><p>采用多个安全内核；</p>
+</li>
+</ul>
+<h3 id="第五代：云防火墙"><a href="#第五代：云防火墙" class="headerlink" title="第五代：云防火墙"></a>第五代：云防火墙</h3><ul>
+<li><p>云平台SaaS（Software as a Service）化的防火墙</p>
+</li>
+<li><p>为用户提供云服务的防护，解决云上访问控制的统一管理</p>
+</li>
+<li><p>不仅具备传统防火墙功能，同时也支持云上多租户、弹性扩容功能</p>
+</li>
+</ul>
+<p><strong>代表产品：</strong></p>
+<ul>
+<li><p>腾讯云防火墙</p>
+</li>
+<li><p>阿里云防火墙</p>
+</li>
+</ul>
+<h2 id="包过滤防火墙"><a href="#包过滤防火墙" class="headerlink" title="包过滤防火墙"></a>包过滤防火墙</h2><h3 id="防火墙技术分类"><a href="#防火墙技术分类" class="headerlink" title="防火墙技术分类"></a>防火墙技术分类</h3><p><img src="D:\blog\blog\source\image\image-20230925112013149.png" alt="image-20230925112013149"></p>
+<h3 id="简单包过滤防火墙原理"><a href="#简单包过滤防火墙原理" class="headerlink" title="简单包过滤防火墙原理"></a>简单包过滤防火墙原理</h3><ul>
+<li><p>作用在网络层和传输层</p>
+</li>
+<li><p>根据数据包头部的源地址、目的地址和源端口号、目的端口号、协议类型等标志确定是否允许数据包通过。</p>
+</li>
+<li><p>只有满足条件的数据包才被转发到目的网络端口，其余数据包则被丢弃。</p>
+</li>
+</ul>
+<h3 id="包过滤防火墙设计目标与能力"><a href="#包过滤防火墙设计目标与能力" class="headerlink" title="包过滤防火墙设计目标与能力"></a>包过滤防火墙设计目标与能力</h3><p><strong>防火墙的基本设计目标</strong></p>
+<ul>
+<li><p>首先能够区分“内部”与“外部”网络。所有通过“内部”和“外部”的网络流量都要经过防火墙</p>
+</li>
+<li><p>通过设置安全策略，保证只有经过授权的数据才可以通过防火墙</p>
+</li>
+<li><p>防火墙本身具备较高的性能与安全</p>
+</li>
+</ul>
+<p><strong>防火墙的控制能力</strong></p>
+<ul>
+<li><p>设备控制，确定哪些设备可以被访问</p>
+</li>
+<li><p>服务&#x2F;应用控制，确定哪些服务&#x2F;应用可以被访问</p>
+</li>
+<li><p>方向控制，对于特定的服务，可以确定允许哪个方向能够通过防火墙</p>
+</li>
+<li><p>用户控制，根据用户来控制对服务的访问</p>
+</li>
+</ul>
+<h3 id="如何过滤"><a href="#如何过滤" class="headerlink" title="如何过滤"></a>如何过滤</h3><ul>
+<li><p>对于每个收到的数据包，根据一组规则进行检查，然后决定转发或者丢弃该数据包</p>
+</li>
+<li><p>过滤的规则以网络层和传输层为基础，包括源和目标IP地址、协议类型、源和目标端口号</p>
+</li>
+<li><p>防火墙建立一组规则，根据数据包是否匹配规则中指定的条件来作出决定</p>
+<ul>
+<li>如果匹配到一条规则，则根据此规则决定转发或者丢弃</li>
+<li>如果所有规则都不匹配，则根据缺省策略转发或者丢弃</li>
+</ul>
+</li>
+</ul>
+<h3 id="过滤依据"><a href="#过滤依据" class="headerlink" title="过滤依据"></a>过滤依据</h3><p><strong>协议类型：</strong>TCP、UDP、ICMP等</p>
+<p><strong>源IP地址、目的IP地址</strong></p>
+<p><strong>源端口、目的端口：</strong>FTP(21)、HTTP(80) 等</p>
+<p><strong>数据包流向：</strong>in或out</p>
+<p><strong>IP</strong>协议： 分段重组、源路由选项等</p>
+<p><strong>TCP</strong>协议：SYN、ACK、FIN、RST等</p>
+<p><strong>数据包流经的网络接口：</strong>eth0、eth1等</p>
+<h3 id="包过滤防火墙工作流程"><a href="#包过滤防火墙工作流程" class="headerlink" title="包过滤防火墙工作流程"></a>包过滤防火墙工作流程</h3><p><img src="D:\blog\blog\source\image\image-20230925115023473.png" alt="image-20230925115023473"></p>
+<p>状态检测包过滤防火墙和简单包过滤区别是前者建立连接状态表</p>
+<p>，前后数据包有关联</p>
+<h3 id="过滤规则设置"><a href="#过滤规则设置" class="headerlink" title="过滤规则设置"></a>过滤规则设置</h3><p><img src="D:\blog\blog\source\image\image-20230925115857971.png" alt="image-20230925115857971"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://windwithshadow.github.io">风随逐影</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://windwithshadow.github.io/2023/09/25/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF4/">http://windwithshadow.github.io/2023/09/25/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://windwithshadow.github.io" target="_blank">风随逐影的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF/">防火墙技术</a></div><div class="post_share"><div class="social-share" data-image="/image/start.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/09/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF5/" title="防火墙技术5"><img class="cover" src="/image/start.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">防火墙技术5</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F3/" title="操作系统3"><img class="cover" src="/image/start.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统3</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/10/09/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF5/" title="防火墙技术5"><img class="cover" src="/image/start.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-09</div><div class="title">防火墙技术5</div></div></a></div><div><a href="/2023/09/18/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF3/" title="防火墙技术3"><img class="cover" src="/image/start.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-18</div><div class="title">防火墙技术3</div></div></a></div><div><a href="/2023/09/11/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF2/" title="防火墙技术2"><img class="cover" src="/image/start.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-11</div><div class="title">防火墙技术2</div></div></a></div><div><a href="/2023/09/04/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF/" title="防火墙技术"><img class="cover" src="/image/start.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-04</div><div class="title">防火墙技术</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">风随逐影</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/windwithshadow"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/windwithshadow" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF4"><span class="toc-number">1.</span> <span class="toc-text">防火墙技术4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%A7%8D%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E2%80%94%E2%80%94Smurf%E6%94%BB%E5%87%BB"><span class="toc-number">1.1.</span> <span class="toc-text">一种网络攻击——Smurf攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">防火墙的发展历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%BB%A3%EF%BC%9A%E8%B7%AF%E7%94%B1%E5%99%A8%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.2.1.</span> <span class="toc-text">第一代：路由器防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E4%BB%A3%EF%BC%9A%E8%BD%AF%E4%BB%B6%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.2.2.</span> <span class="toc-text">第二代：软件防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E4%BB%A3%EF%BC%9A%E7%A1%AC%E4%BB%B6%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.2.3.</span> <span class="toc-text">第三代：硬件防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E4%BB%A3%EF%BC%9A%E5%AE%89%E5%85%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.2.4.</span> <span class="toc-text">第四代：安全操作系统防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E4%BB%A3%EF%BC%9A%E4%BA%91%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.2.5.</span> <span class="toc-text">第五代：云防火墙</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E8%BF%87%E6%BB%A4%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.3.</span> <span class="toc-text">包过滤防火墙</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.1.</span> <span class="toc-text">防火墙技术分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%8C%85%E8%BF%87%E6%BB%A4%E9%98%B2%E7%81%AB%E5%A2%99%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">简单包过滤防火墙原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E8%BF%87%E6%BB%A4%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E4%B8%8E%E8%83%BD%E5%8A%9B"><span class="toc-number">1.3.3.</span> <span class="toc-text">包过滤防火墙设计目标与能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%BF%87%E6%BB%A4"><span class="toc-number">1.3.4.</span> <span class="toc-text">如何过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E4%BE%9D%E6%8D%AE"><span class="toc-number">1.3.5.</span> <span class="toc-text">过滤依据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E8%BF%87%E6%BB%A4%E9%98%B2%E7%81%AB%E5%A2%99%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.6.</span> <span class="toc-text">包过滤防火墙工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.7.</span> <span class="toc-text">过滤规则设置</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/09/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF5/" title="防火墙技术5"><img src="/image/start.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="防火墙技术5"/></a><div class="content"><a class="title" href="/2023/10/09/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF5/" title="防火墙技术5">防火墙技术5</a><time datetime="2023-10-09T02:47:03.000Z" title="发表于 2023-10-09 10:47:03">2023-10-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/25/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF4/" title="防火墙技术4"><img src="/image/start.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="防火墙技术4"/></a><div class="content"><a class="title" href="/2023/09/25/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF4/" title="防火墙技术4">防火墙技术4</a><time datetime="2023-09-25T02:50:29.000Z" title="发表于 2023-09-25 10:50:29">2023-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F3/" title="操作系统3"><img src="/image/start.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统3"/></a><div class="content"><a class="title" href="/2023/09/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F3/" title="操作系统3">操作系统3</a><time datetime="2023-09-21T08:01:03.000Z" title="发表于 2023-09-21 16:01:03">2023-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/18/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF3/" title="防火墙技术3"><img src="/image/start.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="防火墙技术3"/></a><div class="content"><a class="title" href="/2023/09/18/%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF3/" title="防火墙技术3">防火墙技术3</a><time datetime="2023-09-18T02:47:47.000Z" title="发表于 2023-09-18 10:47:47">2023-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F2/" title="操作系统2"><img src="/image/start.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统2"/></a><div class="content"><a class="title" href="/2023/09/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F2/" title="操作系统2">操作系统2</a><time datetime="2023-09-14T07:58:33.000Z" title="发表于 2023-09-14 15:58:33">2023-09-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 风随逐影</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
